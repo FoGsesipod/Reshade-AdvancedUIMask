@@ -372,7 +372,9 @@ float4 RestoreColor(float4 pos : SV_Position, float2 texcoord : TEXCOORD) : SV_T
             counter += 1;
         };
         #if (AdvancedUIMask_RGBMasks == 1)
-            color.rgb = lerp(color.rgb, colorOriginal.rgb, mask);
+            if (ui != 0) {
+                color.rgb = lerp(colorOriginal.rgb, color.rgb, mask);
+            };
         #endif
     #endif
     #if (AdvancedUIMask_Amount >= 2)
@@ -401,7 +403,9 @@ float4 RestoreColor(float4 pos : SV_Position, float2 texcoord : TEXCOORD) : SV_T
             counter += 1;
         };
         #if (AdvancedUIMask_RGBMasks == 1)
-            color.rgb = lerp(color.rgb, colorOriginal.rgb, mask);
+            if (ui != 0) {
+                color.rgb = lerp(colorOriginal.rgb, color.rgb, mask);
+            };
         #endif
     #endif
     #if (AdvancedUIMask_Amount >= 3)
@@ -430,7 +434,9 @@ float4 RestoreColor(float4 pos : SV_Position, float2 texcoord : TEXCOORD) : SV_T
             counter += 1;
         };
         #if (AdvancedUIMask_RGBMasks == 1)
-            color.rgb = lerp(color.rgb, colorOriginal.rgb, mask);
+            if (ui != 0) {
+                color.rgb = lerp(colorOriginal.rgb, color.rgb, mask);
+            };
         #endif
     #endif
     #if (AdvancedUIMask_Amount >= 4)
@@ -459,7 +465,9 @@ float4 RestoreColor(float4 pos : SV_Position, float2 texcoord : TEXCOORD) : SV_T
             counter += 1;
         };
         #if (AdvancedUIMask_RGBMasks == 1)
-            color.rgb = lerp(color.rgb, colorOriginal.rgb, mask);
+            if (ui != 0) {
+                color.rgb = lerp(colorOriginal.rgb, color.rgb, mask);
+            };
         #endif
     #endif
     #if (AdvancedUIMask_Amount >= 5)
@@ -488,7 +496,9 @@ float4 RestoreColor(float4 pos : SV_Position, float2 texcoord : TEXCOORD) : SV_T
             counter += 1;
         };
         #if (AdvancedUIMask_RGBMasks == 1)
-            color.rgb = lerp(color.rgb, colorOriginal.rgb, mask);
+            if (ui != 0) {
+                color.rgb = lerp(colorOriginal.rgb, color.rgb, mask);
+            };
         #endif
     #endif
 
@@ -561,7 +571,7 @@ technique AdvancedUIMask
     #endif
 }
 
-technique AdvancedUIMask_Before
+technique AdvancedUIMask_RTGI_Bloom
 {
     pass
     {
@@ -572,7 +582,7 @@ technique AdvancedUIMask_Before
     }
 }
 
-technique AdvancedUIMask_After
+technique AdvancedUIMask_AfterRTGI_Bloom
 {
     pass
     {
